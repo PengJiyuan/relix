@@ -1,8 +1,11 @@
 {
-  "name": "@pjy/release",
-  "version": "0.0.0",
+  "name": "relix",
+  "version": "0.1.0",
   "description": "Bump version, push commit and tag, publish to npm. (Used by myself)",
-  "main": "index.js",
+  "main": "cli.js",
+  "bin": {
+    "release": "cli.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/PengJiyuan/release/issues"
   },
-  "homepage": "https://github.com/PengJiyuan/release#readme"
+  "homepage": "https://github.com/PengJiyuan/release#readme",
+  "dependencies": {
+    "commander": "^2.15.1",
+    "semver": "^5.5.0"
+  }
 }
