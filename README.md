@@ -1,5 +1,7 @@
 # Relix
-Auto bump version (use [SemVer](https://semver.org/)), push commit and tag, publish to npm.
+A tool help you push release to NPM.
+
+It auto generate version (use [SemVer](https://semver.org/)), push commit and tag, publish to npm.
 
 ## What?
 
