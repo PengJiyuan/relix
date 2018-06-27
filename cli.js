@@ -13,10 +13,10 @@ program
   .option('--patch', 'version when you make backwards-compatible bug fixes.')
   .option('--minor', 'version when you add functionality in a backwards-compatible manner')
   .option('--major', 'version when you make incompatible API changes')
-  .option('--prepatch [identifier]', 'increments the patch version, then makes a prerelease')
-  .option('--preminor [identifier]', 'increments the minor version, then makes a prerelease')
-  .option('--premajor [identifier]', 'increments the major version, then makes a prerelease')
-  .option('--prerelease [identifier]', 'increments version, then makes a prerelease')
+  .option('--prepatch [identifier]', 'increments the patch version, then makes a prerelease (default: beta)')
+  .option('--preminor [identifier]', 'increments the minor version, then makes a prerelease (default: beta)')
+  .option('--premajor [identifier]', 'increments the major version, then makes a prerelease (default: beta)')
+  .option('--prerelease [identifier]', 'increments version, then makes a prerelease (default: beta)')
   .option('--accessPublic', 'npm publish --access=public')
   .parse(process.argv);
 

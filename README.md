@@ -55,10 +55,10 @@ relix -h
     --patch                    version when you make backwards-compatible bug fixes.
     --minor                    version when you add functionality in a backwards-compatible manner
     --major                    version when you make incompatible API changes
-    --prepatch [identifier]    increments the patch version, then makes a prerelease
-    --preminor [identifier]    increments the minor version, then makes a prerelease
-    --premajor [identifier]    increments the major version, then makes a prerelease
-    --prerelease [identifier]  increments version, then makes a prerelease
+    --prepatch [identifier]    increments the patch version, then makes a prerelease (default: beta)
+    --preminor [identifier]    increments the minor version, then makes a prerelease (default: beta)
+    --premajor [identifier]    increments the major version, then makes a prerelease (default: beta)
+    --prerelease [identifier]  increments version, then makes a prerelease (default: beta)
     --accessPublic             npm publish --access=public
     -h, --help                 output usage information
 ```
