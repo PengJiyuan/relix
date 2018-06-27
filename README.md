@@ -67,16 +67,16 @@ relix -h
 
 ## Cli
 
-|              Cmd              |         Version         | Commit Message | Description |
-|-------------------------------|-------------------------|----------------|-------------|
-| `relix --patch` | `1.1.1` -> `1.1.2` | Bump version 1.1.2 | Generate a version when you make backwards-compatible bug fixes. |
-| `relix --minor` | `1.1.1` -> `1.2.0` | Release minor version 1.2.0 | Generate a version when you add functionality in a backwards-compatible manner. |
-| `relix --major` | `1.1.1` -> `2.0.0` | Release major version 2.0.0 | Generate a version when you make incompatible API changes. | 
-| `relix --prepatch alpha` | `1.1.1` -> `1.1.2-alpha.0` | Prerelease alpha version 1.1.2-alpha.0 | Increments the patch version, then makes a prerelease. | 
-| `relix --preminor rc` | `1.1.1` -> `1.2.0-rc.0` | Prerelease rc version 1.2.0-rc.0 | Increments the patch version, then makes a prerelease. | 
-| `relix --preminor` | `1.1.1` -> `2.0.0-beta.0` | Prerelease beta version 2.0.0-beta.0 | Increments the patch version, then makes a prerelease. |
-| `relix --prerelease` | `1.1.1` -> `1.1.2-beta.0` | Prerelease beta version 1.1.2-beta.0 | Increments the patch version, then makes a prerelease. |
-| `relix --patch --accessPublic` | `1.1.1` -> `1.1.2` | Bump version 1.1.2 | `npm publish --access=public`, When your npm package is under scope, use it. eg: `package name: @scope/packageName` |
+| Cmd                            | Version                    | commit_msg     | Description |
+|--------------------------------|----------------------------|----------------|-------------|
+| `relix --patch`                | `1.1.1` -> `1.1.2`         | Bump version 1.1.2 | Generate a version when you make backwards-compatible bug fixes. |
+| `relix --minor`                | `1.1.1` -> `1.2.0`         | Release minor version 1.2.0 | Generate a version when you add functionality in a backwards-compatible manner. |
+| `relix --major`                | `1.1.1` -> `2.0.0`         | Release major version 2.0.0 | Generate a version when you make incompatible API changes. | 
+| `relix --prepatch alpha`       | `1.1.1` -> `1.1.2-alpha.0` | Prerelease alpha version 1.1.2-alpha.0 | Increments the patch version, then makes a prerelease. | 
+| `relix --preminor rc`          | `1.1.1` -> `1.2.0-rc.0`    | Prerelease rc version 1.2.0-rc.0 | Increments the patch version, then makes a prerelease. | 
+| `relix --preminor`             | `1.1.1` -> `2.0.0-beta.0`  | Prerelease beta version 2.0.0-beta.0 | Increments the patch version, then makes a prerelease. |
+| `relix --prerelease`           | `1.1.1` -> `1.1.2-beta.0`  | Prerelease beta version 1.1.2-beta.0 | Increments the patch version, then makes a prerelease. |
+| `relix --patch --accessPublic` | `1.1.1` -> `1.1.2`         | Bump version 1.1.2 | `npm publish --access=public`, When your npm package is under scope, use it. eg: `package name: @scope/packageName` |
 
 ## LICENSE
 
