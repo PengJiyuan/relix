@@ -76,7 +76,7 @@ relix -h
 | `relix --preminor rc` | `1.1.1` -> `1.2.0-rc.0` | Prerelease rc version 1.2.0-rc.0 | Increments the patch version, then makes a prerelease. | 
 | `relix --preminor` | `1.1.1` -> `2.0.0-beta.0` | Prerelease beta version 2.0.0-beta.0 | Increments the patch version, then makes a prerelease. |
 | `relix --prerelease` | `1.1.1` -> `1.1.2-beta.0` | Prerelease beta version 1.1.2-beta.0 | Increments the patch version, then makes a prerelease. |
-| `relix --patch --accessPublic` -> `1.1.1` | `1.1.2` | Bump version 1.1.2 | `npm publish --access=public`, When your npm package is under scope, use it. eg: `package name: @scope/packageName` |
+| `relix --patch --accessPublic` | `1.1.1` -> `1.1.2` | Bump version 1.1.2 | `npm publish --access=public`, When your npm package is under scope, use it. eg: `package name: @scope/packageName` |
 
 ## LICENSE
 
