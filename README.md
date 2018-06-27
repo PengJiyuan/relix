@@ -18,15 +18,15 @@ Oops... So annoying! That's why I create **Relix**!
 
 1. Auto change release version according to [SemVer](https://semver.org/).
 
-You don't have to spend time on changing versions. MAJOR.MINOR.PATCH.BETA, Fully automatic.
+  You don't have to spend time on changing versions. MAJOR.MINOR.PATCH.BETA, Fully automatic.
 
 2. Auto add changed files and generate commit message according to **SemVer version type**.
 
-For example, you use `relix --patch`, the commit message will be `Bump version x.x.x`.
+  For example, you use `relix --patch`, the commit message will be `Bump version x.x.x`.
 
-If you use `relix --beta alpha`, the commit message will be `Prerelease alpha version x.x.x`.
+  If you use `relix --beta alpha`, the commit message will be `Prerelease alpha version x.x.x`.
 
-Sounds great! Right?
+  Sounds great! Right?
 
 3. Push commit to github and make a tag according to new version, then push it to github too.
 
