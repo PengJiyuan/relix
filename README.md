@@ -12,7 +12,7 @@ When we publish a package to NPM, we need do these works:
 5. Push tag to github.
 6. Publish to NPM by `npm publish`.
 
-Oops... So annoying! This is why I create **Relix**!
+Oops... So annoying! That's why I create **Relix**!
 
 ## What can Relix help you?
 
