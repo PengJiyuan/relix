@@ -5,12 +5,12 @@ Auto bump version (use [SemVer](https://semver.org/)), push commit and tag, publ
 
 When we publish a package to NPM, we need do these works:
 
-1. Change version in package.json manually.
-2. Git add and Commit with a message like `bump version xxx`
-3. Push commit to github.
-4. Git tag version.
-5. Push tag to github.
-6. Publish to NPM by `npm publish`.
+* Change version in package.json manually.
+* Git add and Commit with a message like `bump version xxx`
+* Push commit to github.
+* Git tag version.
+* Push tag to github.
+* Publish to NPM by `npm publish`.
 
 Oops... So annoying! That's why I create **Relix**!
 
@@ -24,7 +24,7 @@ Oops... So annoying! That's why I create **Relix**!
 
   For example, you use `relix --patch`, the commit message will be `Bump version x.x.x`.
 
-  If you use `relix --beta alpha`, the commit message will be `Prerelease alpha version x.x.x`.
+  If you use `relix --prerelease alpha`, the commit message will be `Prerelease alpha version x.x.x`.
 
   Sounds great! Right?
 
