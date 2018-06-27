@@ -68,7 +68,7 @@ relix -h
 ## Cli
 
 | Cmd | Version | Commit Message | Description |
-|:-------:|------:|------:|------:|
+|:-------|:------|:------|:------|
 | `relix --patch` | `1.1.1` -> `1.1.2` | Bump version 1.1.2 | Generate a version when you make backwards-compatible bug fixes. |
 | `relix --minor` | `1.1.1` -> `1.2.0` | Release minor version 1.2.0 | Generate a version when you add functionality in a backwards-compatible manner. |
 | `relix --major` | `1.1.1` -> `2.0.0` | Release major version 2.0.0 | Generate a version when you make incompatible API changes. | 
