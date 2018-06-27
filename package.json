@@ -1,7 +1,7 @@
 {
   "name": "relix",
   "version": "0.1.0",
-  "description": "Bump version, push commit and tag, publish to npm. (Used by myself)",
+  "description": "Auto bump version (use semver), push commit and tag, publish to npm.",
   "main": "cli.js",
   "bin": {
     "release": "cli.js"
@@ -15,7 +15,8 @@
   },
   "keywords": [
     "npm",
-    "release"
+    "release",
+    "semver"
   ],
   "author": "PengJiyuan",
   "license": "MIT",
