@@ -74,15 +74,13 @@ cmd: `relix [options]`
 | Cmd                      | Version         | commit_msg     | Description |
 |--------------------------|-----------------|----------------|-------------|
 | `--patch`                | `1.1.2`         | Bump version 1.1.2 | Generate a version when you make backwards-compatible bug fixes. |
-| `--minor`                | `1.2.0`         | Release minor version 1.2.0 | Generate a version when you add functionality in
-a backwards-compatible manner. |
+| `--minor`                | `1.2.0`         | Release minor version 1.2.0 | Generate a version when you add functionality ina backwards-compatible manner. |
 | `--major`                | `2.0.0`         | Release major version 2.0.0 | Generate a version when you make incompatible API changes. | 
 | `--prepatch alpha`       | `1.1.2-alpha.0` | Prerelease alpha version 1.1.2-alpha.0 | Increments the patch version, then makes a prerelease. | 
 | `--preminor rc`          | `1.2.0-rc.0`    | Prerelease rc version 1.2.0-rc.0 | Increments the patch version, then makes a prerelease. | 
 | `--preminor`             | `2.0.0-beta.0`  | Prerelease beta version 2.0.0-beta.0 | Increments the patch version, then makes a prerelease. |
 | `--prerelease`           | `1.1.2-beta.0`  | Prerelease beta version 1.1.2-beta.0 | Increments the patch version, then makes a prerelease. |
-| `--patch --accessPublic` | `1.1.2`         | Bump version 1.1.2 | `npm publish --access=public`, When your npm package is under scope,
-use it. eg: `package name: @scope/packageName` |
+| `--patch --accessPublic` | `1.1.2`         | Bump version 1.1.2 | `npm publish --access=public`, When your npm package is under scope,use it. eg: `package name: @scope/packageName` |
 
 ## LICENSE
 
