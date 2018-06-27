@@ -9,9 +9,9 @@ const pkg = require('./package.json');
 
 program
   .version(pkg.version, '-v, --version')
-  .usage('version [options]\n\n  Version format: MAJOR.MINOR.PATCH (see: https://semver.org/)')
+  .usage('[options]\n\n  Version format: MAJOR.MINOR.PATCH (see: https://semver.org/)')
   .option('--patch', 'version when you make backwards-compatible bug fixes.')
-  .option('--minor', 'version when you add functionality in a backwards-compatible manner, and')
+  .option('--minor', 'version when you add functionality in a backwards-compatible manner')
   .option('--major', 'version when you make incompatible API changes')
   .option('--prepatch [identifier]', 'increments the patch version, then makes a prerelease')
   .option('--preminor [identifier]', 'increments the minor version, then makes a prerelease')
