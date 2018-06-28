@@ -28,7 +28,7 @@ Oops... So annoying! That's why I create **Relix**!
 
   For example, you use `relix --patch`, the commit message will be `Bump version x.x.x`.
 
-  If you use `relix --prerelease alpha`, the commit message will be `Prerelease alpha version x.x.x`.
+  If you use `relix --prerelease alpha`, the commit message will be `Prerelease alpha version x.x.x-alpha.0`.
 
   Sounds great! Right?
 

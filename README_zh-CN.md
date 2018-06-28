@@ -1,7 +1,9 @@
 # Relix
 一个全自动 NPM 包发布工具.
 
-Relix 根据 (use [SemVer](https://semver.org/)) 自动生成新版本号, 然后帮你自动生成commit message，打tag，推到GitHub，发布到 NPM ！.
+Relix 根据 ([SemVer规范](https://semver.org/)) 自动生成新版本号, 然后帮你自动生成commit message，打tag，推到GitHub，发布到 NPM !
+
+[English Document](./README.md)
 
 ## 为什么会有Relix这个项目?
 
@@ -50,7 +52,7 @@ npm i relix -D
 relix -h
 ```
 
-以下是`relix -h`得输出：
+以下是`relix -h`的输出：
 
 ```
   Usage: relix [options]
