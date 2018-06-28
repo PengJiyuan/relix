@@ -11,6 +11,10 @@ Relix 根据 ([SemVer规范](https://semver.org/)) 自动生成新版本号, 然
 
 [English Document](./README.md)
 
+## 使用截图
+
+![Screenshot](./.github/screenshot.png)
+
 ## 为什么会有Relix这个项目?
 
 当我们发布一个新的包到 NPM 的时候，我们需要做以下的工作:

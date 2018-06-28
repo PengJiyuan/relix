@@ -11,6 +11,10 @@ It auto generate version (use [SemVer](https://semver.org/)), push commit and ta
 
 [中文文档](./README_zh-CN.md)
 
+## Screenshot
+
+![Screenshot](./.github/screenshot.png)
+
 ## What?
 
 When we publish a package to NPM, we need do these works:
