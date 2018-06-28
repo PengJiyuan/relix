@@ -80,7 +80,7 @@ cmd: `relix [options]`
 | `--major`                | `2.0.0`         | Release major version 2.0.0 | Generate a version when you<br>make incompatible API changes. | 
 | `--prepatch alpha`       | `1.1.2-alpha.0` | Prerelease alpha version 1.1.2-alpha.0 | Increments the patch version,<br>then makes a prerelease. | 
 | `--preminor rc`          | `1.2.0-rc.0`    | Prerelease rc version 1.2.0-rc.0 | Increments the patch version,<br>then makes a prerelease. | 
-| `--preminor`             | `2.0.0-beta.0`  | Prerelease beta version 2.0.0-beta.0 | Increments the patch version,<br>then makes a prerelease. |
+| `--premajor`             | `2.0.0-beta.0`  | Prerelease beta version 2.0.0-beta.0 | Increments the patch version,<br>then makes a prerelease. |
 | `--prerelease`           | `1.1.2-beta.0`  | Prerelease beta version 1.1.2-beta.0 | Increments the patch version,<br>then makes a prerelease. |
 | `--patch --accessPublic` | `1.1.2`         | Bump version 1.1.2 | `npm publish --access=public`,<br>When your npm package is under scope,use it.<br>eg: `package name: @scope/packageName` |
 
