@@ -1,4 +1,5 @@
 const semver = require('semver');
+const { red } = require('chalk');
 
 function getNewVersion(program, version) {
   const semverList = [
@@ -12,10 +13,10 @@ function getNewVersion(program, version) {
     'premajor',
     'prerelease'
   ];
-  let metadata = {};
+  const metadata = {};
 
   /**
-   * 
+   *
    * @param {String} v old version
    * @param {String} release patch | minor | major | prepatch | premajor | preminor | prerelease
    */
@@ -23,7 +24,7 @@ function getNewVersion(program, version) {
     return semver.inc(v, release, identifier);
   }
 
-  semverList.forEach(sem => {
+  semverList.forEach((sem) => {
     if (program[sem[0]]) {
       if (metadata.version) {
         console.error(`${red('You specified more than one semver type, please specify only one!')}`);
@@ -33,8 +34,8 @@ function getNewVersion(program, version) {
       metadata.prefix = sem[1];
     }
   });
-  
-  preSemverList.forEach(sem => {
+
+  preSemverList.forEach((sem) => {
     if (program[sem]) {
       if (metadata.version) {
         console.error(`${red('You specified more than one semver type, please specify only one!')}`);

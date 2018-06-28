@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
+'use strict';
+
 const fs = require('fs');
 const path = require('path');
 const { exec } = require('child_process');
+const { green, red, cyan } = require('chalk');
 const program = require('commander');
 const semver = require('semver');
 const pkg = require('./package.json');
@@ -36,25 +39,12 @@ try {
 const metadata = getNewVersion(program, version);
 
 function overwitePackageJson() {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     fs.writeFile(packageFile, packageFileData.replace(version, metadata.version), 'utf8', (err) => {
       if (err) reject(err);
       resolve(green('\nUpdate package.json success!'));
     });
   });
-}
-
-// stdout with color
-function green(str) {
-  return '\033[32m' + str + '\033[0m';
-}
-
-function red(str) {
-  return '\033[31m' + str + '\033[0m';
-}
-
-function cyan(str) {
-  return '\033[36m' + str + '\033[0m';
 }
 
 function execShell() {
@@ -80,7 +70,7 @@ function execShell() {
 
 if (metadata.version && semver.valid(metadata.version)) {
   overwitePackageJson()
-    .then(msg => {
+    .then((msg) => {
       console.log(msg);
       console.log(green(`\nVersion: ${cyan(`${version} -> ${metadata.version}`)}`));
       console.log(green(`\nCommit message: ${cyan(`${metadata.prefix}${metadata.version}`)}`));

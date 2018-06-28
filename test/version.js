@@ -13,10 +13,10 @@ const semverList = [
   ['prerelease', true, '1.1.2-beta.0']
 ];
 
-describe('Semver version check (old version: 1.1.1)', function() {
-  semverList.forEach(sem => {
-    const newVersion = semver({[sem[0]]: sem[1]}, oldVersion).version;
-    it(`relix --${sem[0]}${typeof sem[1] === 'string' ? ` ${sem[1]}` : ''} (${oldVersion} -> ${newVersion})`, function() {
+describe('Semver version check (old version: 1.1.1)', () => {
+  semverList.forEach((sem) => {
+    const newVersion = semver({ [sem[0]]: sem[1] }, oldVersion).version;
+    it(`relix --${sem[0]}${typeof sem[1] === 'string' ? ` ${sem[1]}` : ''} (${oldVersion} -> ${newVersion})`, () => {
       assert.equal(newVersion, sem[2]);
     });
   });
