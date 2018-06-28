@@ -5,6 +5,7 @@
   "main": "cli.js",
   "bin": "cli.js",
   "scripts": {
+    "test": "mocha",
     "patch": "relix --patch",
     "minor": "relix --minor",
     "major": "relix --major"
@@ -25,7 +26,10 @@
   },
   "homepage": "https://github.com/PengJiyuan/release#readme",
   "dependencies": {
+    "ava": "^0.25.0",
     "commander": "^2.15.1",
+    "mocha": "^5.2.0",
     "semver": "^5.5.0"
-  }
+  },
+  "devDependencies": {}
 }

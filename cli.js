@@ -6,6 +6,7 @@ const { exec } = require('child_process');
 const program = require('commander');
 const semver = require('semver');
 const pkg = require('./package.json');
+const getNewVersion = require('./semver');
 
 program
   .version(pkg.version, '-v, --version')
@@ -20,21 +21,9 @@ program
   .option('--accessPublic', 'npm publish --access=public')
   .parse(process.argv);
 
-const semverList = [
-  ['patch', 'Bump version '],
-  ['minor', 'Release version '],
-  ['major', 'Release major version ']
-];
-const preSemverList = [
-  'prepatch',
-  'preminor',
-  'premajor',
-  'prerelease'
-];
 const packageFile = path.resolve(process.cwd(), 'package.json');
 let packageFileData;
 let version;
-let metadata = {};
 
 try {
   packageFileData = fs.readFileSync(packageFile, 'utf8');
@@ -44,37 +33,7 @@ try {
   process.exit(1);
 }
 
-/**
- * 
- * @param {String} v old version
- * @param {String} release patch | minor | major | prepatch | premajor | preminor | prerelease
- */
-function getNewVersion(v, release, identifier) {
-  return semver.inc(v, release, identifier);
-}
-
-semverList.forEach(sem => {
-  if (program[sem[0]]) {
-    if (metadata.version) {
-      console.error(`${red('You specified more than one semver type, please specify only one!')}`);
-      process.exit(1);
-    }
-    metadata.version = getNewVersion(version, sem[0]);
-    metadata.prefix = sem[1];
-  }
-});
-
-preSemverList.forEach(sem => {
-  if (program[sem]) {
-    if (metadata.version) {
-      console.error(`${red('You specified more than one semver type, please specify only one!')}`);
-      process.exit(1);
-    }
-    const identifier = typeof program[sem] === 'boolean' ? 'beta' : program[sem];
-    metadata.version = getNewVersion(version, sem, identifier);
-    metadata.prefix = `Prerelease ${identifier} version `;
-  }
-});
+const metadata = getNewVersion(program, version);
 
 function overwitePackageJson() {
   return new Promise((resolve) => {
@@ -119,7 +78,7 @@ function execShell() {
   childExec.stderr.pipe(process.stderr);
 }
 
-if (metadata.version) {
+if (metadata.version && semver.valid(metadata.version)) {
   overwitePackageJson()
     .then(msg => {
       console.log(msg);
