@@ -1,0 +1,3 @@
+{
+  "eslint.options": { "configFile": "node_modules/uslint/bin/.eslintrc" }
+}
