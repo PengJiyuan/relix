@@ -3,6 +3,8 @@ A tool help you push release to NPM.
 
 It auto generate version (use [SemVer](https://semver.org/)), push commit and tag, publish to npm.
 
+[中文文档](./README_zh-CN.md)
+
 ## What?
 
 When we publish a package to NPM, we need do these works:
