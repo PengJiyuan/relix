@@ -2,6 +2,8 @@
 [![npm](https://img.shields.io/npm/v/relix.svg)](https://www.npmjs.com/package/relix)
 [![npm](https://img.shields.io/npm/l/relix.svg)](https://www.npmjs.com/package/relix)
 
+![Logo](./.github/logo.png)
+
 # Relix
 A tool help you push release to NPM.
 
