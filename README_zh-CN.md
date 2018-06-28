@@ -1,3 +1,7 @@
+[![Travis](https://img.shields.io/travis/PengJiyuan/relix.svg)](https://travis-ci.org/PengJiyuan/relix)
+[![npm](https://img.shields.io/npm/v/relix.svg)](https://www.npmjs.com/package/relix)
+[![npm](https://img.shields.io/npm/l/relix.svg)](https://www.npmjs.com/package/relix)
+
 # Relix
 一个全自动 NPM 包发布工具.
 

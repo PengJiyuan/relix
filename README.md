@@ -1,3 +1,7 @@
+[![Travis](https://img.shields.io/travis/PengJiyuan/relix.svg)](https://travis-ci.org/PengJiyuan/relix)
+[![npm](https://img.shields.io/npm/v/relix.svg)](https://www.npmjs.com/package/relix)
+[![npm](https://img.shields.io/npm/l/relix.svg)](https://www.npmjs.com/package/relix)
+
 # Relix
 A tool help you push release to NPM.
 
