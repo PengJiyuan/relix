@@ -5,58 +5,64 @@
 ![Logo](./.github/logo.png)
 
 # Relix
-A tool help you push release to NPM.
+一个全自动 NPM 包发布工具.
 
-It auto generate version (use [SemVer](https://semver.org/)), push commit and tag, publish to npm.
+Relix 根据 ([SemVer规范](https://semver.org/)) 自动生成新版本号, 然后帮你自动生成commit message，打tag，推到GitHub，发布到 NPM !
 
-[中文文档](./README_zh-CN.md)
+[English Document](./README.md)
 
-## Screenshot
+## 使用截图
 
 ![Screenshot](./.github/screenshot.png)
 
-## What?
+## 为什么会有Relix这个项目?
 
-When we publish a package to NPM, we need do these works:
+当我们发布一个新的包到 NPM 的时候，我们需要做以下的工作:
 
-* Change version in package.json manually.
-* Git add and Commit with a message like `bump version xxx`
-* Push commit to github.
-* Git tag version.
-* Push tag to github.
-* Publish to NPM by `npm publish`.
+* 手动改变`package.json`中的版本号.
+* `git add` 更改并且 `git commit` 生成一个新提交。通常我们需要有一个像 `bump version 1.1.1` 这样的commit message。
+* 通过 `git push` 推送本地提交到远程Github.
+* 基于我们的新版本号打个新tag.
+* 推送这个tag到远程Github.
+* 通过 `npm publish` 把新版本的包推送到NPM.
 
-Oops... So annoying! That's why I create **Relix**!
+额... 好烦人有木有! 而且整个过程中的所有信息（新版本号的确认，commit message，tag）都需要自己手动填写，容易出错不说，还很麻烦！
 
-## What can Relix help you?
+所以，这就是 **Relix** 出现的原因!
 
-* Auto change release version according to [SemVer](https://semver.org/).
+## Relix 可以帮你做什么?
 
-  You don't have to spend time on changing versions. MAJOR.MINOR.PATCH.BETA, Fully automatic.
+* 根据 [SemVer规范](https://semver.org/)自动生成新版本号.
 
-* Auto add changed files and generate commit message according to **SemVer version type**.
+  你不用浪费时间去手动确认版本号，Relix会根据你想要的发布类型自动确认版本号，**MAJOR.MINOR.PATCH.BETA**， 全自动化！
 
-  For example, you use `relix --patch`, the commit message will be `Bump version x.x.x`.
+* 根据 **新版本的类型** 自动生成Commit message.
 
-  If you use `relix --prerelease alpha`, the commit message will be `Prerelease alpha version x.x.x-alpha.0`.
+  比如, 当你使用 `relix --patch`, 会生成这样一个提交信息 `Bump version x.x.x`.
 
-  Sounds great! Right?
+  当你使用 `relix --prerelease alpha`, 会生成这样一个提交信息 `Prerelease alpha version x.x.x-alpha.0`.
 
-* Push commit to github and make a tag according to new version, then push it to github too.
+  听起来不错对不对！
 
-* Publish to NPM!
+* 推送提交到远程Github，并且根据新版本号打个tag，然后把这个tag推送到远程Github。
 
-## Usage
+* 最后，Relix会帮你把完全标准化的一个包发布到 NPM 上!
+
+## 使用方法
 
 ```bash
+# 全局安装relix
 npm i relix -g
-# or
+# 或者本地安装relix
 npm i relix -D
 ```
 
 ```bash
+## 输出relix的使用方法
 relix -h
 ```
+
+以下是`relix -h`的输出：
 
 ```
   Usage: relix [options]
@@ -77,22 +83,22 @@ relix -h
     -h, --help                 output usage information
 ```
 
-## Cli
+## 命令的使用方法
 
-eg: Current Version: **1.1.1**
+比如，你当前的版本是 **1.1.1**
 
-cmd: `relix [options]`
+以下命令的格式都是 `relix [option]`。
 
-| Cmd                      | Version         | commit_msg     | Description |
+| option                   | 新生成的版本号    | 自动生成的提交信息 | 解释        |
 |--------------------------|-----------------|----------------|-------------|
-| `--patch`                | `1.1.2`         | Bump version 1.1.2 | Generate a version when<br>you make backwards-compatible bug fixes. |
-| `--minor`                | `1.2.0`         | Release minor version 1.2.0 | Generate a version when you<br>add functionality ina backwards-compatible manner. |
-| `--major`                | `2.0.0`         | Release major version 2.0.0 | Generate a version when you<br>make incompatible API changes. | 
-| `--prepatch alpha`       | `1.1.2-alpha.0` | Prerelease alpha version 1.1.2-alpha.0 | Increments the patch version,<br>then makes a prerelease. | 
-| `--preminor rc`          | `1.2.0-rc.0`    | Prerelease rc version 1.2.0-rc.0 | Increments the patch version,<br>then makes a prerelease. | 
-| `--premajor`             | `2.0.0-beta.0`  | Prerelease beta version 2.0.0-beta.0 | Increments the patch version,<br>then makes a prerelease. |
-| `--prerelease`           | `1.1.2-beta.0`  | Prerelease beta version 1.1.2-beta.0 | Increments the patch version,<br>then makes a prerelease. |
-| `--patch --accessPublic` | `1.1.2`         | Bump version 1.1.2 | `npm publish --access=public`,<br>When your npm package is under scope,use it.<br>eg: `package name: @scope/packageName` |
+| `--patch`                | `1.1.2`         | Bump version 1.1.2 | 如果你做了一些向后兼容的bugfix，那么你用这个命令。 |
+| `--minor`                | `1.2.0`         | Release minor version 1.2.0 | 如果你新增了一些功能，但是没有做api上的改动，<br>向后兼容，那么你用这个命令. |
+| `--major`                | `2.0.0`         | Release major version 2.0.0 | 如果你改api并且不向后兼容了，那么你用这个命令 | 
+| `--prepatch alpha`       | `1.1.2-alpha.0` | Prerelease alpha version 1.1.2-alpha.0 | 如果你做了一些向后兼容的bugfix，<br>然后想发布一个预发布版本，那么你用这个命令. | 
+| `--preminor rc`          | `1.2.0-rc.0`    | Prerelease rc version 1.2.0-rc.0 | 如果你新增了一些功能，但是没有做api上的改动,<br>然后想发布一个预发布版本，那么你用这个命令. | 
+| `--premajor`             | `2.0.0-beta.0`  | Prerelease beta version 2.0.0-beta.0 | 如果你改api并且不向后兼容,<br>然后想发布一个预发布版本，那么你用这个命令. |
+| `--prerelease`           | `1.1.2-beta.0`  | Prerelease beta version 1.1.2-beta.0 | 等同于 `--prepatch`. |
+| `--patch --accessPublic` | `1.1.2`         | Bump version 1.1.2 | 如果你的 NPM 包是私有包，比如你的包名称叫`@yourname/packageName`<br>，那么在发布时候需要使用`npm publish --access=public`来发布，<br>这个时候你需要使用`--accessPublic` |
 
 ## LICENSE
 
