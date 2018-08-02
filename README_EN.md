@@ -74,6 +74,7 @@ relix -h
     --premajor [identifier]    increments the major version, then makes a prerelease (default: beta)
     --prerelease [identifier]  increments version, then makes a prerelease (default: beta)
     --accessPublic             npm publish --access=public
+    -m, --remote [remote]      remote and branch. format: `upstream/branch`
     -h, --help                 output usage information
 ```
 
@@ -93,6 +94,7 @@ cmd: `relix [options]`
 | `--premajor`             | `2.0.0-beta.0`  | Prerelease beta version 2.0.0-beta.0 | Increments the patch version,<br>then makes a prerelease. |
 | `--prerelease`           | `1.1.2-beta.0`  | Prerelease beta version 1.1.2-beta.0 | Increments the patch version,<br>then makes a prerelease. |
 | `--patch --accessPublic` | `1.1.2`         | Bump version 1.1.2 | `npm publish --access=public`,<br>When your npm package is under scope,use it.<br>eg: `package name: @scope/packageName` |
+| `--patch --remote upstream/mybranch` | `1.1.2`         | Bump version 1.1.2 | Specify upstream and branch |
 
 ## LICENSE
 
