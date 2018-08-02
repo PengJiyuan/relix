@@ -1,6 +1,6 @@
 {
   "name": "relix",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Auto bump version (use semver), push commit and tag, publish to npm.",
   "main": "cli.js",
   "bin": "cli.js",
