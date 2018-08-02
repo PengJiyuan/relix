@@ -80,6 +80,7 @@ relix -h
     --premajor [identifier]    increments the major version, then makes a prerelease (default: beta)
     --prerelease [identifier]  increments version, then makes a prerelease (default: beta)
     --accessPublic             npm publish --access=public
+    -m, --remote [remote]      remote and branch. format: `upstream/branch`
     -h, --help                 output usage information
 ```
 
@@ -99,6 +100,7 @@ relix -h
 | `--premajor`             | `2.0.0-beta.0`  | Prerelease beta version 2.0.0-beta.0 | 如果你改api并且不向后兼容,<br>然后想发布一个预发布版本，那么你用这个命令. |
 | `--prerelease`           | `1.1.2-beta.0`  | Prerelease beta version 1.1.2-beta.0 | 等同于 `--prepatch`. |
 | `--patch --accessPublic` | `1.1.2`         | Bump version 1.1.2 | 如果你的 NPM 包是私有包，比如你的包名称叫`@yourname/packageName`<br>，那么在发布时候需要使用`npm publish --access=public`来发布，<br>这个时候你需要使用`--accessPublic` |
+| `--patch --remote upstream/mybranch` | `1.1.2`         | Bump version 1.1.2 | 用于指定远程和分支 |
 
 ## LICENSE
 
