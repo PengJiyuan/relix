@@ -22,11 +22,22 @@ program
   .option('--premajor [identifier]', 'increments the major version, then makes a prerelease (default: beta)')
   .option('--prerelease [identifier]', 'increments version, then makes a prerelease (default: beta)')
   .option('--accessPublic', 'npm publish --access=public')
+  .option('-m, --remote [remote]', 'remote and branch. format: `upstream/branch`', /^\w+\/\w+$/i)
   .parse(process.argv);
 
 const packageFile = path.resolve(process.cwd(), 'package.json');
 let packageFileData;
 let version;
+let remote;
+
+if (program.remote === undefined || program.remote === true) {
+  remote = 'origin/master';
+} else {
+  remote = program.remote;
+}
+
+const upstream = remote.split('/')[0];
+const branch = remote.split('/')[1];
 
 try {
   packageFileData = fs.readFileSync(packageFile, 'utf8');
@@ -49,13 +60,13 @@ function overwitePackageJson() {
 
 function execShell() {
   const shellList = [
-    `echo "\n${green('[ 1 / 3 ]')} ${cyan('Commit and push to origin master')}\n"`,
+    `echo "\n${green('[ 1 / 3 ]')} ${cyan(`Commit and push to ${upstream}/${branch}`)}\n"`,
     'git add .',
     `git commit -m "${metadata.prefix}${metadata.version}"`,
-    'git push origin master',
-    `echo "\n${green('[ 2 / 3 ]')} ${cyan('Tag and push tag to origin')}\n"`,
+    `git push ${upstream} ${branch}`,
+    `echo "\n${green('[ 2 / 3 ]')} ${cyan(`Tag and push tag to ${upstream}`)}\n"`,
     `git tag ${metadata.version}`,
-    `git push origin ${metadata.version}`,
+    `git push ${upstream} ${metadata.version}`,
     `echo "\n${green('[ 3 / 3 ]')} ${cyan('Publish to NPM')}\n"`,
     `npm publish ${program.accessPublic ? '--access=public' : ''}`
   ].join(' && ');
