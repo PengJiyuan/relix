@@ -22,22 +22,12 @@ program
   .option('--premajor [identifier]', 'increments the major version, then makes a prerelease (default: beta)')
   .option('--prerelease [identifier]', 'increments version, then makes a prerelease (default: beta)')
   .option('--accessPublic', 'npm publish --access=public')
-  .option('-m, --remote [remote]', 'remote and branch. format: `upstream/branch`', /^\w+\/\w+$/i)
+  .option('-m, --remote [remote]', 'remote and branch. format: `upstream/branch`', /^[a-zA-Z0-9_~.-]+\/[a-zA-Z0-9_~.-]+$/)
   .parse(process.argv);
 
 const packageFile = path.resolve(process.cwd(), 'package.json');
 let packageFileData;
 let version;
-let remote;
-
-if (program.remote === undefined || program.remote === true) {
-  remote = 'origin/master';
-} else {
-  remote = program.remote;
-}
-
-const upstream = remote.split('/')[0];
-const branch = remote.split('/')[1];
 
 try {
   packageFileData = fs.readFileSync(packageFile, 'utf8');
@@ -58,7 +48,7 @@ function overwitePackageJson() {
   });
 }
 
-function execShell() {
+function execShell(upstream, branch) {
   const shellList = [
     `echo "\n${green('[ 1 / 3 ]')} ${cyan(`Commit and push to ${upstream}/${branch}`)}\n"`,
     'git add .',
@@ -80,12 +70,25 @@ function execShell() {
 }
 
 if (metadata.version && semver.valid(metadata.version)) {
+  let remote;
+
+  if (program.remote === true) {
+    console.log(red('Please enter correct format like that:\n\n'), cyan('`relix --remote upstream/branch`'));
+    process.exit(1);
+  } else if (program.remote === undefined) {
+    remote = 'origin/master';
+  } else {
+    remote = program.remote;
+  }
+
+  const upstream = remote.split('/')[0];
+  const branch = remote.split('/')[1];
   overwitePackageJson()
     .then((msg) => {
       console.log(msg);
       console.log(green(`\nVersion: ${cyan(`${version} -> ${metadata.version}`)}`));
       console.log(green(`\nCommit message: ${cyan(`${metadata.prefix}${metadata.version}`)}`));
-      execShell();
+      execShell(upstream, branch);
     });
 } else {
   program.outputHelp();
