@@ -76,6 +76,19 @@ relix -h
     --accessPublic             npm publish --access=public
     -m, --remote [remote]      remote and branch. format: `upstream/branch`
     -h, --help                 output usage information
+
+  Tip:
+
+    You should run this script in the root directory of you project or run by npm scripts.
+
+  Examples:
+
+    $ relix --patch
+    $ relix --prepatch
+    $ relix --prepatch alpha
+    $ relix --major --accessPublic
+    $ relix --patch --remote upstream/branch
+
 ```
 
 ## Cli
