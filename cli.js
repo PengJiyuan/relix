@@ -23,6 +23,17 @@ program
   .option('--prerelease [identifier]', 'increments version, then makes a prerelease (default: beta)')
   .option('--accessPublic', 'npm publish --access=public')
   .option('-m, --remote [remote]', 'remote and branch. format: `upstream/branch`', /^[a-zA-Z0-9_~.-]+\/[a-zA-Z0-9_~.-]+$/)
+  .on('--help', () => {
+    console.log('\n  Tip:\n');
+    console.log('    You should run this script in the root directory of you project or run by npm scripts.');
+    console.log('\n  Examples:\n');
+    console.log(`    ${green('$')} relix --patch`);
+    console.log(`    ${green('$')} relix --prepatch`);
+    console.log(`    ${green('$')} relix --prepatch alpha`);
+    console.log(`    ${green('$')} relix --major --accessPublic`);
+    console.log(`    ${green('$')} relix --patch --remote upstream/branch`);
+    console.log('');
+  })
   .parse(process.argv);
 
 const packageFile = path.resolve(process.cwd(), 'package.json');
