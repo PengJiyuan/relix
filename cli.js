@@ -72,7 +72,7 @@ function execShell(upstream, branch) {
     `npm publish ${program.accessPublic ? '--access=public' : ''}`
   ].join(' && ');
 
-  const childExec = exec(shellList, { maxBuffer: 10000 * 1024 }, (err, stdout) => {
+  const childExec = exec(shellList, { maxBuffer: 10000 * 10240 }, (err, stdout) => {
     if (err) throw err;
     console.log(`\n${green('[ Relix ]')} Release Success!\n`);
   });
