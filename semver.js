@@ -1,7 +1,7 @@
 const semver = require('semver');
 const { red } = require('chalk');
 
-function getNewVersion(program, version) {
+function getNewVersion(options, version) {
   const semverList = [
     ['patch', 'Bump version '],
     ['minor', 'Release version '],
@@ -19,13 +19,14 @@ function getNewVersion(program, version) {
    *
    * @param {String} v old version
    * @param {String} release patch | minor | major | prepatch | premajor | preminor | prerelease
+   * @param identifier
    */
   function increase(v, release, identifier) {
     return semver.inc(v, release, identifier);
   }
 
   semverList.forEach((sem) => {
-    if (program[sem[0]]) {
+    if (options[sem[0]]) {
       if (metadata.version) {
         console.error(`${red('You specified more than one semver type, please specify only one!')}`);
         process.exit(1);
@@ -36,12 +37,12 @@ function getNewVersion(program, version) {
   });
 
   preSemverList.forEach((sem) => {
-    if (program[sem]) {
+    if (options[sem]) {
       if (metadata.version) {
         console.error(`${red('You specified more than one semver type, please specify only one!')}`);
         process.exit(1);
       }
-      const identifier = typeof program[sem] === 'boolean' ? 'beta' : program[sem];
+      const identifier = typeof options[sem] === 'boolean' ? 'beta' : options[sem];
       metadata.version = increase(version, sem, identifier);
       metadata.prefix = `Prerelease ${identifier} version `;
     }
