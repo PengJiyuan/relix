@@ -115,6 +115,34 @@ relix -h
 | `--patch --accessPublic` | `1.1.2`         | Bump version 1.1.2 | 如果你的 NPM 包是私有包，比如你的包名称叫`@yourname/packageName`<br>，那么在发布时候需要使用`npm publish --access=public`来发布，<br>这个时候你需要使用`--accessPublic` |
 | `--patch --remote upstream/mybranch` | `1.1.2`         | Bump version 1.1.2 | 用于指定远程和分支 |
 
+## Node API
+
+### relix(options)
+
+`options` `<Object>`
+* `patch` `<boolean>`
+* `minor` `<boolean>`
+* `major` `<boolean>`
+* `prepatch` `<boolean|string>`
+* `preminor` `<boolean|string>`
+* `premajor` `<boolean|string>`
+* `accessPublic` `<boolean>`
+* `remote` `<string>`
+
+### usage
+
+```js
+const relix = require('relix');
+relix({
+  path: true,
+  accessPublic: true,
+  remote: 'upstream/mybranch'
+}).then(
+  () => console.log('Publish success...'),
+  () => process.exit(1)
+);
+```
+
 ## LICENSE
 
 [MIT](./LICENSE) © PengJiyuan
