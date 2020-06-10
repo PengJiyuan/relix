@@ -27,13 +27,12 @@
   },
   "homepage": "https://github.com/PengJiyuan/release#readme",
   "dependencies": {
-    "ava": "^0.25.0",
     "chalk": "^2.4.1",
     "commander": "^2.15.1",
-    "mocha": "^5.2.0",
     "semver": "^5.5.0"
   },
   "devDependencies": {
+    "mocha": "^5.2.0",
     "pre-commit": "^1.2.2",
     "uslint": "^0.3.4"
   },
